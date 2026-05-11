@@ -1,0 +1,16 @@
+{
+  "name": "SHD.Settings",
+  "rootNamespace": "SHD.Settings",
+  "references": [
+	"SHD.Core"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

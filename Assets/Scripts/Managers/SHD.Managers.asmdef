@@ -1,0 +1,16 @@
+{
+  "name": "SHD.Managers",
+  "rootNamespace": "SHD.Managers",
+  "references": [
+
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

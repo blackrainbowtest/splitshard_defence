@@ -1,0 +1,16 @@
+{
+  "name": "SHD.Enemy",
+  "rootNamespace": "SHD.Enemy",
+  "references": [
+
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

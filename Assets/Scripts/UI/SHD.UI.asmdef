@@ -1,0 +1,16 @@
+{
+  "name": "SHD.UI",
+  "rootNamespace": "SHD.UI",
+  "references": [
+    "SHD.Core"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

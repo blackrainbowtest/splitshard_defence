@@ -1,0 +1,16 @@
+{
+  "name": "SHD.Save",
+  "rootNamespace": "SHD.Save",
+  "references": [
+    "SHD.Core"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
