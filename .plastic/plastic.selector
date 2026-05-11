@@ -1,0 +1,4 @@
+repository "splitshard defence/splitshard defence@18968347872000@cloud"
+  path "/"
+    br "/main"
+    co "/main"
