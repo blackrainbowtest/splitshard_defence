@@ -1,0 +1,8 @@
+{
+  "Language": "en",
+  "Entries": [
+    { "Key": "dialogues.general.greeting", "Value": "Welcome, commander." },
+    { "Key": "dialogues.general.warning", "Value": "Enemy wave incoming!" },
+    { "Key": "dialogues.tutorial.first_step", "Value": "Build your first shard tower." }
+  ]
+}

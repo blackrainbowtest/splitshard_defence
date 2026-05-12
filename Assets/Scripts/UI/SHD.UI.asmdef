@@ -2,7 +2,10 @@
   "name": "SHD.UI",
   "rootNamespace": "SHD.UI",
   "references": [
-    "SHD.Core"
+    "SHD.Core",
+    "SHD.Loading",
+    "Unity.InputSystem",
+    "Unity.TextMeshPro"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

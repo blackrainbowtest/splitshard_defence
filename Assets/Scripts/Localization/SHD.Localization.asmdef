@@ -2,7 +2,7 @@
   "name": "SHD.Localization",
   "rootNamespace": "SHD.Localization",
   "references": [
-
+    "Unity.TextMeshPro"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

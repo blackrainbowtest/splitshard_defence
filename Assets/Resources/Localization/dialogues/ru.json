@@ -1,0 +1,8 @@
+{
+  "Language": "ru",
+  "Entries": [
+    { "Key": "dialogues.general.greeting", "Value": "Добро пожаловать, командир." },
+    { "Key": "dialogues.general.warning", "Value": "Приближается волна врагов!" },
+    { "Key": "dialogues.tutorial.first_step", "Value": "Постройте свою первую осколочную башню." }
+  ]
+}

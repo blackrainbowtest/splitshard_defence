@@ -1,0 +1,9 @@
+{
+  "AutoRun": true,
+  "BootstrapScene": "S_Bootstrap",
+  "LogoScene": "S_Logo",
+  "LogoMinDurationSeconds": 1.0,
+  "LoadingScene": "S_Loading",
+  "WaitForTapToContinueOnLoading": true,
+  "MainMenuScene": "S_MainMenu"
+}

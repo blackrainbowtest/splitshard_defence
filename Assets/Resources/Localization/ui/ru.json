@@ -1,0 +1,24 @@
+{
+  "Language": "ru",
+  "Entries": [
+    { "Key": "ui.common.yes", "Value": "Да" },
+    { "Key": "ui.common.no", "Value": "Нет" },
+    { "Key": "ui.common.back", "Value": "Назад" },
+    { "Key": "ui.common.cancel", "Value": "Отмена" },
+    { "Key": "ui.common.apply", "Value": "Применить" },
+    { "Key": "ui.common.continue", "Value": "Продолжить" },
+    { "Key": "ui.menu.new_game", "Value": "Новая игра" },
+    { "Key": "ui.menu.saves", "Value": "Сохранения" },
+    { "Key": "ui.menu.settings", "Value": "Настройки" },
+    { "Key": "ui.menu.about", "Value": "Об игре" },
+    { "Key": "ui.menu.exit", "Value": "Выход" },
+    { "Key": "ui.loading.title", "Value": "Загрузка..." },
+    { "Key": "ui.loading.press_to_continue", "Value": "Нажмите, чтобы продолжить" },
+    { "Key": "menu.new_game", "Value": "Новая игра" },
+    { "Key": "menu.saves", "Value": "Сохранения" },
+    { "Key": "menu.settings", "Value": "Настройки" },
+    { "Key": "menu.about", "Value": "Об игре" },
+    { "Key": "menu.exit", "Value": "Выход" },
+    { "Key": "loading.title", "Value": "Загрузка..." }
+  ]
+}

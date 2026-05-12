@@ -1,0 +1,9 @@
+{
+  "Language": "ru",
+  "Entries": [
+    { "Key": "items.shard_core.name", "Value": "Осколочное ядро" },
+    { "Key": "items.shard_core.desc", "Value": "Базовый ресурс для питания обороны." },
+    { "Key": "items.crystal_blade.name", "Value": "Кристальный клинок" },
+    { "Key": "items.crystal_blade.desc", "Value": "Клинок, выкованный из уплотненных осколков." }
+  ]
+}

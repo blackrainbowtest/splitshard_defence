@@ -1,0 +1,9 @@
+{
+  "Language": "en",
+  "Entries": [
+    { "Key": "items.shard_core.name", "Value": "Shard Core" },
+    { "Key": "items.shard_core.desc", "Value": "Core resource used to power defenses." },
+    { "Key": "items.crystal_blade.name", "Value": "Crystal Blade" },
+    { "Key": "items.crystal_blade.desc", "Value": "A blade forged from condensed shards." }
+  ]
+}

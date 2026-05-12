@@ -1,0 +1,21 @@
+{
+    "name": "SHD.Bootstrap",
+    "rootNamespace": "SHD.Core.Bootstrap",
+    "references": [
+        "SHD.Core",
+        "SHD.Localization",
+        "SHD.Loading",
+        "SHD.Save",
+        "SHD.Settings",
+        "SHD.UI"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

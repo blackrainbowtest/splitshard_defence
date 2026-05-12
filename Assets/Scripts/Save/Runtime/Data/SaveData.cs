@@ -1,4 +1,5 @@
 using System;
+
 using SHD.Core.Constants;
 
 namespace SHD.Save.Data
@@ -9,8 +10,6 @@ namespace SHD.Save.Data
 
 		private int _save_version;
 		private string _game_version;
-
-		private int _slot_id;
 
 		private int _score;
 		private int _survived_waves;
@@ -41,19 +40,6 @@ namespace SHD.Save.Data
 			set
 			{
 				_game_version = value;
-			}
-		}
-
-		public int SlotId
-		{
-			get
-			{
-				return (_slot_id);
-			}
-
-			set
-			{
-				_slot_id = value;
 			}
 		}
 
@@ -113,8 +99,6 @@ namespace SHD.Save.Data
 		{
 			_save_version = CurrentSaveVersion;
 			_game_version = GameInfo.GameVersion;
-
-			_slot_id = 0;
 
 			_score = 0;
 			_survived_waves = 0;
