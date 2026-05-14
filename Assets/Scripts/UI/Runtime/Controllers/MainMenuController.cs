@@ -1,6 +1,7 @@
 using SHD.Core.Enums;
 using SHD.UI.Managers;
 using SHD.UI.Windows;
+using UnityEngine;
 
 namespace SHD.UI.Controllers
 {
@@ -45,8 +46,7 @@ namespace SHD.UI.Controllers
 
 		public void ExitGame()
 		{
-			// later:
-			// Application.Quit();
+			Application.Quit();
 		}
 	}
 }
