@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a64446c633e7644a193b1aea957348, type: 3}
+  m_Name: music_main_menu
+  m_EditorClassIdentifier: SHD.Core::SHD.Core.Audio.AudioCue
+  _cue_id: music.main_menu
+  _bus: 0
+  _clips:
+  - {fileID: 8300000, guid: fe9fa5cc5e38de147970f946dd4e7c61, type: 3}
+  _shuffle_without_repeat: 1
+  _loop: 1
+  _allow_overlap: 0
+  _cooldown_seconds: 0
+  _max_simultaneous: 1
+  _priority: 128
+  _volume: 1
+  _volume_random_range: {x: 0.95, y: 1.05}
+  _pitch: 1
+  _pitch_random_range: {x: 0.98, y: 1.02}
+  _spatial_blend: 0
+  _min_distance: 1
+  _max_distance: 20
+  _explicit_output_group: {fileID: 0}

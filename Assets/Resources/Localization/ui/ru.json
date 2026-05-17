@@ -14,11 +14,10 @@
     { "Key": "ui.menu.exit", "Value": "Выход" },
     { "Key": "ui.loading.title", "Value": "Загрузка..." },
     { "Key": "ui.loading.press_to_continue", "Value": "Нажмите, чтобы продолжить" },
-    { "Key": "menu.new_game", "Value": "Новая игра" },
-    { "Key": "menu.saves", "Value": "Сохранения" },
-    { "Key": "menu.settings", "Value": "Настройки" },
-    { "Key": "menu.about", "Value": "Об игре" },
-    { "Key": "menu.exit", "Value": "Выход" },
-    { "Key": "loading.title", "Value": "Загрузка..." }
+    { "Key": "ui.about.version", "Value": "ВЕРСИЯ" },
+    { "Key": "ui.about.developed_by", "Value": "Разработано" },
+    { "Key": "ui.about.credits", "Value": "Благодарности" },
+    { "Key": "ui.about.ai_disclaimer", "Value": "Некоторые визуальные и аудио-ассеты были созданы с помощью ИИ и доработаны вручную." },
+    { "Key": "ui.about.description", "Value": "Последний бастион стоит против бесконечных орд. Командуйте войсками, защищайте королевство и переживите ярость падшего короля. Каждая ночь, когда вы удерживаете рубеж, возвращает надежду в разрушенный мир." }
   ]
 }

@@ -119,6 +119,81 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &130394135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 130394136}
+  - component: {fileID: 130394138}
+  - component: {fileID: 130394137}
+  m_Layer: 5
+  m_Name: Foxy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &130394136
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130394135}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2142236185}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -304.5, y: 675.5}
+  m_SizeDelta: {x: 609, y: 1351}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &130394137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130394135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 75abf4ecf0aa5e040a3cc8330c874404, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &130394138
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130394135}
+  m_CullTransparentMesh: 1
 --- !u!1 &254319449
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +376,7 @@ GameObject:
   - component: {fileID: 311779468}
   - component: {fileID: 311779467}
   - component: {fileID: 311779466}
+  - component: {fileID: 311779470}
   m_Layer: 5
   m_Name: NewGame
   m_TagString: Untagged
@@ -391,7 +467,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 311779468}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1117787292}
+        m_TargetAssemblyTypeName: SHD.UI.Mono.MainMenuScenePresenterMono, SHD.UI
+        m_MethodName: OnNewGamePressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &311779468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,6 +518,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311779464}
   m_CullTransparentMesh: 1
+--- !u!114 &311779470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311779464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee9df8502d244f479569857f2f9545b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SHD.UI::SHD.UI.Mono.UIButtonClickSoundMono
+  _sound_profile: {fileID: 11400000, guid: b2260d3041a2f5a48bd26dc7850baf7a, type: 2}
+  _override_click_cue: {fileID: 11400000, guid: fa4f2a0723e584342aa3b61c10dc1dd0, type: 2}
 --- !u!1 &463334605
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +612,7 @@ GameObject:
   - component: {fileID: 516080406}
   - component: {fileID: 516080405}
   - component: {fileID: 516080404}
+  - component: {fileID: 516080408}
   m_Layer: 5
   m_Name: About
   m_TagString: Untagged
@@ -600,7 +703,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 516080406}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1117787292}
+        m_TargetAssemblyTypeName: SHD.UI.Mono.MainMenuScenePresenterMono, SHD.UI
+        m_MethodName: OnAboutPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &516080406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,6 +754,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 516080402}
   m_CullTransparentMesh: 1
+--- !u!114 &516080408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516080402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee9df8502d244f479569857f2f9545b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SHD.UI::SHD.UI.Mono.UIButtonClickSoundMono
+  _sound_profile: {fileID: 11400000, guid: b2260d3041a2f5a48bd26dc7850baf7a, type: 2}
+  _override_click_cue: {fileID: 11400000, guid: fa4f2a0723e584342aa3b61c10dc1dd0, type: 2}
 --- !u!1 &602686285
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,6 +860,7 @@ GameObject:
   - component: {fileID: 723944994}
   - component: {fileID: 723944993}
   - component: {fileID: 723944992}
+  - component: {fileID: 723944996}
   m_Layer: 5
   m_Name: Saves
   m_TagString: Untagged
@@ -821,7 +951,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 723944994}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1117787292}
+        m_TargetAssemblyTypeName: SHD.UI.Mono.MainMenuScenePresenterMono, SHD.UI
+        m_MethodName: OnSavesPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &723944994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,6 +1002,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723944990}
   m_CullTransparentMesh: 1
+--- !u!114 &723944996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723944990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee9df8502d244f479569857f2f9545b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SHD.UI::SHD.UI.Mono.UIButtonClickSoundMono
+  _sound_profile: {fileID: 11400000, guid: b2260d3041a2f5a48bd26dc7850baf7a, type: 2}
+  _override_click_cue: {fileID: 11400000, guid: fa4f2a0723e584342aa3b61c10dc1dd0, type: 2}
 --- !u!1 &980411838
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,6 +1029,7 @@ GameObject:
   - component: {fileID: 980411842}
   - component: {fileID: 980411841}
   - component: {fileID: 980411840}
+  - component: {fileID: 980411844}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -963,7 +1120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 980411842}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1117787292}
+        m_TargetAssemblyTypeName: SHD.UI.Mono.MainMenuScenePresenterMono, SHD.UI
+        m_MethodName: OnExitPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &980411842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1002,6 +1171,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980411838}
   m_CullTransparentMesh: 1
+--- !u!114 &980411844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980411838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee9df8502d244f479569857f2f9545b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SHD.UI::SHD.UI.Mono.UIButtonClickSoundMono
+  _sound_profile: {fileID: 11400000, guid: b2260d3041a2f5a48bd26dc7850baf7a, type: 2}
+  _override_click_cue: {fileID: 11400000, guid: fa4f2a0723e584342aa3b61c10dc1dd0, type: 2}
 --- !u!1 &1079573399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,7 +1235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d05ee4fa67d7447b7f4e2b1b16d91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: SHD.Localization::SHD.Localization.Mono.LocalizedTextMono
-  _localization_key: menu.settings
+  _localization_key: ui.menu.settings
   _fallback_text: Settings
   _tmp_text: {fileID: 1079573402}
 --- !u!114 &1079573402
@@ -1200,10 +1383,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: SHD.UI::SHD.UI.Mono.MainMenuScenePresenterMono
   _new_game_scene_name: S_GameChoice
-  _about_scene_name: S_About
   _overlay_root: {fileID: 1908421133}
-  _saves_overlay_prefab: {fileID: 0}
-  _settings_overlay_prefab: {fileID: 0}
+  _saves_overlay_prefab: {fileID: 4989498394794887356, guid: 9a7f28e9d39e4863bf58468dd0a5a93f, type: 3}
+  _settings_overlay_prefab: {fileID: 1196312220315873803, guid: 37f01ea1b7e8244479694977de07a0f4, type: 3}
+  _about_overlay_prefab: {fileID: 5806657467384333101, guid: e158794c15b262049acd116700ac2f4e, type: 3}
 --- !u!1 &1128988053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,7 +1437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d05ee4fa67d7447b7f4e2b1b16d91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: SHD.Localization::SHD.Localization.Mono.LocalizedTextMono
-  _localization_key: menu.saves
+  _localization_key: ui.menu.saves
   _fallback_text: Saves
   _tmp_text: {fileID: 1128988056}
 --- !u!114 &1128988056
@@ -1507,7 +1690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d05ee4fa67d7447b7f4e2b1b16d91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: SHD.Localization::SHD.Localization.Mono.LocalizedTextMono
-  _localization_key: menu.new_game
+  _localization_key: ui.menu.new_game
   _fallback_text: New Game
   _tmp_text: {fileID: 1215431584}
 --- !u!1 &1400798985
@@ -1560,7 +1743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d05ee4fa67d7447b7f4e2b1b16d91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: SHD.Localization::SHD.Localization.Mono.LocalizedTextMono
-  _localization_key: menu.exit
+  _localization_key: ui.menu.exit
   _fallback_text: Exit
   _tmp_text: {fileID: 1400798988}
 --- !u!114 &1400798988
@@ -1713,7 +1896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d05ee4fa67d7447b7f4e2b1b16d91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: SHD.Localization::SHD.Localization.Mono.LocalizedTextMono
-  _localization_key: menu.about
+  _localization_key: ui.menu.about
   _fallback_text: About
   _tmp_text: {fileID: 1571054437}
 --- !u!114 &1571054437
@@ -1829,6 +2012,7 @@ GameObject:
   - component: {fileID: 1785886958}
   - component: {fileID: 1785886957}
   - component: {fileID: 1785886956}
+  - component: {fileID: 1785886960}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -1919,7 +2103,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1785886958}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1117787292}
+        m_TargetAssemblyTypeName: SHD.UI.Mono.MainMenuScenePresenterMono, SHD.UI
+        m_MethodName: OnSettingsPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1785886958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1958,6 +2154,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1785886954}
   m_CullTransparentMesh: 1
+--- !u!114 &1785886960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785886954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee9df8502d244f479569857f2f9545b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SHD.UI::SHD.UI.Mono.UIButtonClickSoundMono
+  _sound_profile: {fileID: 11400000, guid: b2260d3041a2f5a48bd26dc7850baf7a, type: 2}
+  _override_click_cue: {fileID: 11400000, guid: fa4f2a0723e584342aa3b61c10dc1dd0, type: 2}
 --- !u!1 &1908421132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2164,6 +2374,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2002768313}
+  - {fileID: 130394136}
   - {fileID: 463334606}
   - {fileID: 1908421133}
   m_Father: {fileID: 0}

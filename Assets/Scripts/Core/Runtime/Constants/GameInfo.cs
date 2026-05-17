@@ -2,6 +2,6 @@ namespace SHD.Core.Constants
 {
 	public static class GameInfo
 	{
-		public const string GameVersion = "0.0.001";
+		public const string GameVersion = "0.0.008";
 	}
 }

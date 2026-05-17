@@ -4,6 +4,8 @@
   "references": [
     "SHD.Core",
     "SHD.Loading",
+    "SHD.Save",
+    "DOTween.Modules",
     "Unity.InputSystem",
     "Unity.TextMeshPro"
   ],

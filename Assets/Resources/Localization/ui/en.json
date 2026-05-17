@@ -1,24 +1,77 @@
 {
   "Language": "en",
   "Entries": [
-    { "Key": "ui.common.yes", "Value": "Yes" },
-    { "Key": "ui.common.no", "Value": "No" },
-    { "Key": "ui.common.back", "Value": "Back" },
-    { "Key": "ui.common.cancel", "Value": "Cancel" },
-    { "Key": "ui.common.apply", "Value": "Apply" },
-    { "Key": "ui.common.continue", "Value": "Continue" },
-    { "Key": "ui.menu.new_game", "Value": "New Game" },
-    { "Key": "ui.menu.saves", "Value": "Saves" },
-    { "Key": "ui.menu.settings", "Value": "Settings" },
-    { "Key": "ui.menu.about", "Value": "About" },
-    { "Key": "ui.menu.exit", "Value": "Exit" },
-    { "Key": "ui.loading.title", "Value": "Loading..." },
-    { "Key": "ui.loading.press_to_continue", "Value": "Press to continue" },
-    { "Key": "menu.new_game", "Value": "New Game" },
-    { "Key": "menu.saves", "Value": "Saves" },
-    { "Key": "menu.settings", "Value": "Settings" },
-    { "Key": "menu.about", "Value": "About" },
-    { "Key": "menu.exit", "Value": "Exit" },
-    { "Key": "loading.title", "Value": "Loading..." }
+    {
+      "Key": "ui.common.yes",
+      "Value": "Yes"
+    },
+    {
+      "Key": "ui.common.no",
+      "Value": "No"
+    },
+    {
+      "Key": "ui.common.back",
+      "Value": "Back"
+    },
+    {
+      "Key": "ui.common.cancel",
+      "Value": "Cancel"
+    },
+    {
+      "Key": "ui.common.apply",
+      "Value": "Apply"
+    },
+    {
+      "Key": "ui.common.continue",
+      "Value": "Continue"
+    },
+    {
+      "Key": "ui.menu.new_game",
+      "Value": "New Game"
+    },
+    {
+      "Key": "ui.menu.saves",
+      "Value": "Saves"
+    },
+    {
+      "Key": "ui.menu.settings",
+      "Value": "Settings"
+    },
+    {
+      "Key": "ui.menu.about",
+      "Value": "About"
+    },
+    {
+      "Key": "ui.menu.exit",
+      "Value": "Exit"
+    },
+    {
+      "Key": "ui.loading.title",
+      "Value": "Loading..."
+    },
+    {
+      "Key": "ui.loading.press_to_continue",
+      "Value": "Press to continue"
+    },
+    {
+      "Key": "ui.about.version",
+      "Value": "VERSION"
+    },
+    {
+      "Key": "ui.about.developed_by",
+      "Value": "Developed by"
+    },
+    {
+      "Key": "ui.about.credits",
+      "Value": "Credits"
+    },
+    {
+      "Key": "ui.about.ai_disclaimer",
+      "Value": "Some visual and audio assets were created with AI assistance and manually refined."
+    },
+    {
+      "Key": "ui.about.description",
+      "Value": "The last bastion stands against endless hordes. Command your forces, defend the kingdom, and survive the fallen king's wrath. Every night you hold the line brings hope back to a shattered world."
+    }
   ]
 }

@@ -1327,7 +1327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d05ee4fa67d7447b7f4e2b1b16d91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: SHD.Localization::SHD.Localization.Mono.LocalizedTextMono
-  _localization_key: loading.title
+  _localization_key: ui.loading.title
   _fallback_text: Loading...
   _tmp_text: {fileID: 1953095881}
 --- !u!114 &1953095881

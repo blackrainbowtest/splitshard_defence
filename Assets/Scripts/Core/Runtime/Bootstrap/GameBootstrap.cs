@@ -81,8 +81,7 @@ namespace SHD.Core.Bootstrap
 
 		private void InitializeSettings(string settings_path)
 		{
-			_ = settings_path;
-			_settings_manager = new SettingsManager();
+			_settings_manager = new SettingsManager(settings_path);
 		}
 
 		private void InitializeSaveSystem(string save_directory)
@@ -130,6 +129,21 @@ namespace SHD.Core.Bootstrap
 			_settings_manager.SetLanguage(_localization_service.CurrentLanguage);
 
 			return (changed);
+		}
+
+		public void SetMusicVolume(float volume)
+		{
+			_settings_manager.SetMusicVolume(volume);
+		}
+
+		public void SetSfxVolume(float volume)
+		{
+			_settings_manager.SetSfxVolume(volume);
+		}
+
+		public void SetUiVolume(float volume)
+		{
+			_settings_manager.SetUiVolume(volume);
 		}
 
 		private void InitializeMainMenu()

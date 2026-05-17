@@ -1,5 +1,6 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using SHD.Loading.Mono;
+using SHD.Loading.Orchestration;
 
 namespace SHD.UI.Mono
 {
@@ -7,14 +8,29 @@ namespace SHD.UI.Mono
 	{
 		[Header("Scenes")]
 		[SerializeField] private string _new_game_scene_name = "S_GameChoice";
-		[SerializeField] private string _about_scene_name = "S_About";
 
 		[Header("Overlays")]
 		[SerializeField] private Transform _overlay_root;
 		[SerializeField] private GameObject _saves_overlay_prefab;
 		[SerializeField] private GameObject _settings_overlay_prefab;
+		[SerializeField] private GameObject _about_overlay_prefab;
 
 		private GameObject _active_overlay_instance;
+		private LoadingMonoBridge _loading_bridge;
+		private StartupFlowConfigDto _startup_flow_config;
+
+		[System.Serializable]
+		private class StartupFlowConfigDto
+		{
+			public string LoadingScene;
+			public bool WaitForTapToContinueOnLoading;
+		}
+
+		private void Awake()
+		{
+			_loading_bridge = Object.FindAnyObjectByType<LoadingMonoBridge>();
+			_startup_flow_config = LoadStartupFlowConfig();
+		}
 
 		public void OnNewGamePressed()
 		{
@@ -33,12 +49,16 @@ namespace SHD.UI.Mono
 
 		public void OnAboutPressed()
 		{
-			LoadSceneByName(_about_scene_name);
+			OpenOverlay(_about_overlay_prefab);
 		}
 
 		public void OnExitPressed()
 		{
+#if UNITY_EDITOR
+			UnityEditor.EditorApplication.isPlaying = false;
+#else
 			Application.Quit();
+#endif
 		}
 
 		public void CloseActiveOverlay()
@@ -52,6 +72,8 @@ namespace SHD.UI.Mono
 
 		private void OpenOverlay(GameObject prefab)
 		{
+			Object instantiated_object;
+			GameObject instantiated_game_object;
 			Transform parent;
 
 			if (prefab == null)
@@ -63,25 +85,90 @@ namespace SHD.UI.Mono
 			CloseActiveOverlay();
 
 			parent = _overlay_root != null ? _overlay_root : transform;
-			_active_overlay_instance = Instantiate(prefab, parent, false);
+			instantiated_object = Instantiate((Object)prefab, parent, false);
+			instantiated_game_object = ResolveGameObject(instantiated_object);
+			if (instantiated_game_object == null)
+			{
+				Debug.LogWarning("MainMenuScenePresenterMono: prefab instantiate cast failed, using fallback overlay object.");
+				instantiated_game_object = new GameObject("OverlayFallback", typeof(RectTransform));
+				instantiated_game_object.transform.SetParent(parent, false);
+				if (prefab != null && prefab.name.Contains("Saves") == true)
+					instantiated_game_object.AddComponent<SavesOverlayMono>();
+			}
+
+			_active_overlay_instance = instantiated_game_object;
 			StretchToParent(_active_overlay_instance.transform);
+			if (_active_overlay_instance.transform is RectTransform == false)
+			{
+				Transform ui_root;
+
+				ui_root = _active_overlay_instance.transform.Find("UIRoot");
+				if (ui_root != null)
+					StretchToParent(ui_root);
+			}
+		}
+
+		private GameObject ResolveGameObject(Object instance)
+		{
+			GameObject game_object;
+			Component component;
+
+			game_object = instance as GameObject;
+			if (game_object != null)
+				return (game_object);
+
+			component = instance as Component;
+			if (component != null)
+				return (component.gameObject);
+
+			return (null);
 		}
 
 		private void LoadSceneByName(string scene_name)
 		{
+			string loading_scene_name;
+			bool wait_for_tap;
+
+			if (_loading_bridge == null)
+				_loading_bridge = Object.FindAnyObjectByType<LoadingMonoBridge>();
+			if (_startup_flow_config == null)
+				_startup_flow_config = LoadStartupFlowConfig();
+
 			if (string.IsNullOrWhiteSpace(scene_name) == true)
 			{
 				Debug.LogError("MainMenuScenePresenterMono: target scene name is empty.");
 				return;
 			}
 
-			if (Application.CanStreamedLevelBeLoaded(scene_name) == false)
+			if (_loading_bridge == null)
 			{
-				Debug.LogError("MainMenuScenePresenterMono: scene is not in Build Settings: " + scene_name);
+				Debug.LogError("MainMenuScenePresenterMono: LoadingMonoBridge was not found.");
 				return;
 			}
 
-			SceneManager.LoadScene(scene_name, LoadSceneMode.Single);
+			loading_scene_name = _startup_flow_config != null ? _startup_flow_config.LoadingScene : string.Empty;
+			wait_for_tap = _startup_flow_config != null && _startup_flow_config.WaitForTapToContinueOnLoading;
+
+			if (string.IsNullOrWhiteSpace(loading_scene_name) == true)
+			{
+				_loading_bridge.LoadSceneByName(scene_name);
+				return;
+			}
+
+			StartupFlowRuntimeState.SetPendingTarget(scene_name, wait_for_tap);
+			_loading_bridge.LoadSceneByName(loading_scene_name);
+		}
+
+		private StartupFlowConfigDto LoadStartupFlowConfig()
+		{
+			const string config_path = "StartupFlow/config";
+			TextAsset text_asset;
+
+			text_asset = Resources.Load<TextAsset>(config_path);
+			if (text_asset == null || string.IsNullOrWhiteSpace(text_asset.text) == true)
+				return (null);
+
+			return (JsonUtility.FromJson<StartupFlowConfigDto>(text_asset.text));
 		}
 
 		private void StretchToParent(Transform instance_transform)

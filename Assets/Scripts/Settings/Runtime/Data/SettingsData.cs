@@ -1,10 +1,12 @@
 namespace SHD.Settings.Data
 {
+	[System.Serializable]
 	public class SettingsData
 	{
 		private float _music_volume;
 		private float _sound_volume;
 		private float _ambient_volume;
+		private float _ui_volume;
 
 		private string _language;
 
@@ -47,6 +49,19 @@ namespace SHD.Settings.Data
 			}
 		}
 
+		public float UiVolume
+		{
+			get
+			{
+				return (_ui_volume);
+			}
+
+			set
+			{
+				_ui_volume = value;
+			}
+		}
+
 		public string Language
 		{
 			get
@@ -65,6 +80,7 @@ namespace SHD.Settings.Data
 			_music_volume = 1.0f;
 			_sound_volume = 1.0f;
 			_ambient_volume = 1.0f;
+			_ui_volume = 1.0f;
 
 			_language = "en";
 		}

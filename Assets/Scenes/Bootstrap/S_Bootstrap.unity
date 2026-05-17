@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1338435202}
   - component: {fileID: 1338435203}
+  - component: {fileID: 1338435204}
   m_Layer: 0
   m_Name: Bootstrap
   m_TagString: Untagged
@@ -163,6 +164,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af81fb00b25992041837848ef96492a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: SHD.Bootstrap::SHD.Core.Bootstrap.Mono.BootstrapMono
+--- !u!114 &1338435204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338435201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213c5594049ef2e498f5a7ddf355100f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SHD.Bootstrap::SHD.Core.Bootstrap.Mono.MainMenuMusicDriverMono
+  _scene_music_bindings:
+  - _scene_name: S_MainMenu
+    _music_cue: {fileID: 11400000, guid: ed97d778601b4ed478c10f6442315870, type: 2}
+    _crossfade_seconds: 0.75
+  _restart_if_same_clip_is_playing: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
