@@ -14,6 +14,10 @@ namespace SHD.Save.Data
 		private int _score;
 		private int _survived_waves;
 		private int _army_size;
+		private string _difficulty_id;
+		private int _faction_emblem_id;
+		private string _faction_name;
+		private int _commander_appearance_id;
 
 		private DateTime _save_time;
 
@@ -82,6 +86,58 @@ namespace SHD.Save.Data
 			}
 		}
 
+		public string DifficultyId
+		{
+			get
+			{
+				return (_difficulty_id);
+			}
+
+			set
+			{
+				_difficulty_id = value;
+			}
+		}
+
+		public int FactionEmblemId
+		{
+			get
+			{
+				return (_faction_emblem_id);
+			}
+
+			set
+			{
+				_faction_emblem_id = value;
+			}
+		}
+
+		public string FactionName
+		{
+			get
+			{
+				return (_faction_name);
+			}
+
+			set
+			{
+				_faction_name = value;
+			}
+		}
+
+		public int CommanderAppearanceId
+		{
+			get
+			{
+				return (_commander_appearance_id);
+			}
+
+			set
+			{
+				_commander_appearance_id = value;
+			}
+		}
+
 		public DateTime SaveTime
 		{
 			get
@@ -103,6 +159,10 @@ namespace SHD.Save.Data
 			_score = 0;
 			_survived_waves = 0;
 			_army_size = 0;
+			_difficulty_id = "normal";
+			_faction_emblem_id = 0;
+			_faction_name = "My Faction";
+			_commander_appearance_id = 0;
 
 			_save_time = DateTime.Now;
 		}

@@ -1,4 +1,4 @@
-{
+﻿{
   "Language": "ru",
   "Entries": [
     { "Key": "ui.common.yes", "Value": "Да" },
@@ -18,6 +18,23 @@
     { "Key": "ui.about.developed_by", "Value": "Разработано" },
     { "Key": "ui.about.credits", "Value": "Благодарности" },
     { "Key": "ui.about.ai_disclaimer", "Value": "Некоторые визуальные и аудио-ассеты были созданы с помощью ИИ и доработаны вручную." },
-    { "Key": "ui.about.description", "Value": "Последний бастион стоит против бесконечных орд. Командуйте войсками, защищайте королевство и переживите ярость падшего короля. Каждая ночь, когда вы удерживаете рубеж, возвращает надежду в разрушенный мир." }
+    { "Key": "ui.about.description", "Value": "Последний бастион стоит против бесконечных орд. Командуйте войсками, защищайте королевство и переживите ярость падшего короля. Каждая ночь, когда вы удерживаете рубеж, возвращает надежду в разрушенный мир." },
+    { "Key": "ui.settings.title", "Value": "Настройки" },
+    { "Key": "ui.settings.language", "Value": "Язык" },
+    { "Key": "ui.settings.music", "Value": "Музыка" },
+    { "Key": "ui.settings.sfx", "Value": "Эффекты" },
+    { "Key": "ui.settings.ui_volume", "Value": "Интерфейс" },
+    { "Key": "ui.settings.save", "Value": "Сохранить" },
+    { "Key": "ui.settings.close", "Value": "Закрыть" },
+    { "Key": "ui.settings.unsaved_changes", "Value": "Есть несохранённые изменения" },
+    { "Key": "ui.saves.load", "Value": "Загрузить" },
+    { "Key": "ui.saves.delete", "Value": "Удалить" },
+    { "Key": "ui.saves.autosave", "Value": "Автосохранение" },
+    { "Key": "ui.saves.slot", "Value": "Слот" },
+    { "Key": "ui.saves.empty", "Value": "Пусто" },
+    { "Key": "ui.saves.selected", "Value": "Выбрано" },
+    { "Key": "ui.saves.saved_at", "Value": "Сохранено" },
+    { "Key": "ui.saves.score", "Value": "Счёт" },
+    { "Key": "ui.saves.waves", "Value": "Волны" }
   ]
 }

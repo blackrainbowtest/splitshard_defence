@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 using System.Reflection;
+using UnityEngine.SceneManagement;
 
 using SHD.Save.Data;
 using SHD.Save.Managers;
@@ -40,6 +41,7 @@ namespace SHD.UI.Mono
 			BuildFallbackLayoutIfNeeded();
 			_save_manager = ResolveSaveManager();
 			WireButtons();
+			RefreshButtonsState();
 			RebuildSlots();
 		}
 
@@ -106,6 +108,12 @@ namespace SHD.UI.Mono
 		{
 			SaveData save_data;
 
+			if (IsSaveAllowedInCurrentScene() == false)
+			{
+				Debug.Log("SavesOverlayMono: saving is disabled in main menu scene.");
+				return;
+			}
+
 			if (_save_manager == null)
 			{
 				Debug.LogError("SavesOverlayMono: SaveManager not found.");
@@ -120,6 +128,23 @@ namespace SHD.UI.Mono
 
 			Debug.Log("SavesOverlayMono: saved to slot " + _selected_slot_id.ToString() + ".");
 			RebuildSlots();
+		}
+
+		private void RefreshButtonsState()
+		{
+			bool can_save;
+
+			can_save = IsSaveAllowedInCurrentScene();
+			if (_save_button != null)
+				_save_button.interactable = can_save;
+		}
+
+		private bool IsSaveAllowedInCurrentScene()
+		{
+			string scene_name;
+
+			scene_name = SceneManager.GetActiveScene().name;
+			return (scene_name != "S_MainMenu");
 		}
 
 		private void HandleDeletePressed()
@@ -331,11 +356,32 @@ namespace SHD.UI.Mono
 			item.gameObject.name = slot_id == 0 ? "Slot_Autosave" : "Slot_" + slot_id.ToString();
 			item.gameObject.SetActive(true);
 
-			slot_name = slot_id == 0 ? "Autosave" : "Slot " + slot_id.ToString();
+			slot_name = BuildSlotDisplayName(slot_id, slot);
 			details = BuildSlotDetails(slot);
 
 			item.Initialize(slot_id, slot_name, details, SelectSlot);
 			_slot_items.Add(item);
+		}
+
+		private string BuildSlotDisplayName(int slot_id, SaveSlot slot)
+		{
+			SaveData data;
+			string base_name;
+			string faction_name;
+
+			base_name = slot_id == 0 ? "Autosave" : "Slot " + slot_id.ToString();
+			if (slot == null || slot.HasSave == false)
+				return (base_name);
+
+			data = slot.SaveData;
+			if (data == null)
+				return (base_name);
+
+			faction_name = data.FactionName;
+			if (string.IsNullOrWhiteSpace(faction_name) == true)
+				return (base_name);
+
+			return (base_name + " - " + faction_name.Trim());
 		}
 
 		private string BuildSlotDetails(SaveSlot slot)

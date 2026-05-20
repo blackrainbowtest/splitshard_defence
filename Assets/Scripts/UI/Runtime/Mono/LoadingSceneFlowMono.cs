@@ -6,7 +6,6 @@ using SHD.Loading.Mono;
 using SHD.Loading.Domain;
 using SHD.Loading.Orchestration;
 using TMPro;
-using DG.Tweening;
 
 namespace SHD.UI.Mono
 {
@@ -20,9 +19,11 @@ namespace SHD.UI.Mono
 		private bool _is_ready;
 		private bool _has_preload_started;
 		private bool _is_transitioning;
-		private Tween _tap_pulse_tween;
+		private Coroutine _tap_pulse_coroutine;
 		private CanvasGroup _tap_to_continue_canvas_group;
 		private const float TransitionDelaySeconds = 0.4f;
+		private const float TapPulseDurationSeconds = 0.9f;
+		private const float TapPulseMinAlpha = 0.45f;
 
 		private async void Start()
 		{
@@ -170,21 +171,35 @@ namespace SHD.UI.Mono
 
 			StopTapPulseAnimation();
 			_tap_to_continue_canvas_group.alpha = 1f;
-			_tap_pulse_tween = _tap_to_continue_canvas_group
-				.DOFade(0.45f, 0.9f)
-				.SetEase(Ease.InOutSine)
-				.SetLoops(-1, LoopType.Yoyo);
+			_tap_pulse_coroutine = StartCoroutine(TapPulseRoutine());
 		}
 
 		private void StopTapPulseAnimation()
 		{
-			if (_tap_pulse_tween != null && _tap_pulse_tween.IsActive() == true)
-				_tap_pulse_tween.Kill();
+			if (_tap_pulse_coroutine != null)
+				StopCoroutine(_tap_pulse_coroutine);
 
-			_tap_pulse_tween = null;
+			_tap_pulse_coroutine = null;
 
 			if (_tap_to_continue_canvas_group != null)
 				_tap_to_continue_canvas_group.alpha = 1f;
+		}
+
+		private System.Collections.IEnumerator TapPulseRoutine()
+		{
+			float time;
+			float phase;
+			float alpha;
+
+			time = 0f;
+			while (true)
+			{
+				time += Time.unscaledDeltaTime;
+				phase = (Mathf.Sin((time / TapPulseDurationSeconds) * Mathf.PI * 2f - Mathf.PI * 0.5f) + 1f) * 0.5f;
+				alpha = Mathf.Lerp(TapPulseMinAlpha, 1f, phase);
+				_tap_to_continue_canvas_group.alpha = alpha;
+				yield return null;
+			}
 		}
 
 		private bool WasTapOrClickPressedThisFrame()

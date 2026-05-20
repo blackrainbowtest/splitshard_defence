@@ -14,12 +14,13 @@ namespace SHD.Core.Bootstrap.Audio
 
 		private float _fade_duration;
 		private float _fade_elapsed;
-		private float _fade_from_volume;
-		private float _fade_to_volume;
+		private float _fade_from_base_volume;
+		private float _fade_to_base_volume;
 		private bool _is_fading;
 		private bool _is_fading_out_only;
 		private float _music_volume_scale = 1f;
-		private float _last_music_volume_scale = 1f;
+		private float _active_base_volume;
+		private float _idle_base_volume;
 
 		public MusicPlayer(AudioSource source_a, AudioSource source_b)
 		{
@@ -51,19 +52,21 @@ namespace SHD.Core.Bootstrap.Audio
 
 			target_volume = Mathf.Clamp01(cue.Volume * _music_volume_scale);
 			target_pitch = Mathf.Clamp(cue.Pitch, -3f, 3f);
+			_idle_base_volume = Mathf.Clamp01(cue.Volume);
 
 			_idle_source.Stop();
 			_idle_source.clip = clip;
 			_idle_source.loop = cue.Loop;
 			_idle_source.pitch = target_pitch;
 			_idle_source.spatialBlend = 0f;
-			_idle_source.volume = 0f;
+			_idle_source.volume = 0f * _music_volume_scale;
 			_idle_source.Play();
 
 			if (_active_source.isPlaying == false || crossfade_seconds <= 0.01f)
 			{
 				_active_source.Stop();
 				_idle_source.volume = target_volume;
+				_active_base_volume = _idle_base_volume;
 				SwapSources();
 				_is_fading = false;
 				return;
@@ -71,8 +74,8 @@ namespace SHD.Core.Bootstrap.Audio
 
 			_fade_duration = crossfade_seconds;
 			_fade_elapsed = 0f;
-			_fade_from_volume = _active_source.volume;
-			_fade_to_volume = target_volume;
+			_fade_from_base_volume = _active_base_volume;
+			_fade_to_base_volume = _idle_base_volume;
 			_is_fading = true;
 		}
 
@@ -91,13 +94,18 @@ namespace SHD.Core.Bootstrap.Audio
 			_fade_elapsed += Mathf.Max(0f, delta_time);
 			t = _fade_duration <= 0.001f ? 1f : Mathf.Clamp01(_fade_elapsed / _fade_duration);
 
-			_active_source.volume = Mathf.Lerp(_fade_from_volume, 0f, t);
+			_active_base_volume = Mathf.Lerp(_fade_from_base_volume, 0f, t);
+			_active_source.volume = _active_base_volume * _music_volume_scale;
 			if (_is_fading_out_only == false)
-				_idle_source.volume = Mathf.Lerp(0f, _fade_to_volume, t);
+			{
+				_idle_base_volume = Mathf.Lerp(0f, _fade_to_base_volume, t);
+				_idle_source.volume = _idle_base_volume * _music_volume_scale;
+			}
 
 			if (t >= 1f)
 			{
 				_active_source.Stop();
+				_active_base_volume = 0f;
 				if (_is_fading_out_only == false)
 					SwapSources();
 				_is_fading = false;
@@ -124,30 +132,16 @@ namespace SHD.Core.Bootstrap.Audio
 
 			_fade_duration = fade_out_seconds;
 			_fade_elapsed = 0f;
-			_fade_from_volume = _active_source.volume;
-			_fade_to_volume = 0f;
+			_fade_from_base_volume = _active_base_volume;
+			_fade_to_base_volume = 0f;
 			_is_fading = true;
 			_is_fading_out_only = true;
 		}
 
 		public void SetMusicVolumeScale(float scale)
 		{
-			float next_scale;
-			float ratio;
-
-			next_scale = Mathf.Clamp01(scale);
-			ratio = _last_music_volume_scale <= 0.0001f ? next_scale : next_scale / _last_music_volume_scale;
-
-			_music_volume_scale = next_scale;
-			_last_music_volume_scale = next_scale;
-
-			if (_active_source != null)
-				_active_source.volume = Mathf.Clamp01(_active_source.volume * ratio);
-			if (_idle_source != null)
-				_idle_source.volume = Mathf.Clamp01(_idle_source.volume * ratio);
-
-			_fade_from_volume = Mathf.Clamp01(_fade_from_volume * ratio);
-			_fade_to_volume = Mathf.Clamp01(_fade_to_volume * ratio);
+			_music_volume_scale = Mathf.Clamp01(scale);
+			ApplyScaledVolumes();
 		}
 
 		private AudioClip PickClip(AudioClip[] clips)
@@ -164,10 +158,23 @@ namespace SHD.Core.Bootstrap.Audio
 		private void SwapSources()
 		{
 			AudioSource temp;
+			float temp_base;
 
 			temp = _active_source;
 			_active_source = _idle_source;
 			_idle_source = temp;
+
+			temp_base = _active_base_volume;
+			_active_base_volume = _idle_base_volume;
+			_idle_base_volume = temp_base;
+		}
+
+		private void ApplyScaledVolumes()
+		{
+			if (_active_source != null)
+				_active_source.volume = Mathf.Clamp01(_active_base_volume * _music_volume_scale);
+			if (_idle_source != null)
+				_idle_source.volume = Mathf.Clamp01(_idle_base_volume * _music_volume_scale);
 		}
 	}
 }

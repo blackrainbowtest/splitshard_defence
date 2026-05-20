@@ -1382,8 +1382,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33506a70cd1b260438c73e9a9fe8b196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: SHD.UI::SHD.UI.Mono.MainMenuScenePresenterMono
-  _new_game_scene_name: S_GameChoice
+  _gameplay_scene_name: S_Gameplay
   _overlay_root: {fileID: 1908421133}
+  _new_game_settings_overlay_prefab: {fileID: 2815819337118271825, guid: 5933d4305e4d8af489eb060ef9e6f701, type: 3}
   _saves_overlay_prefab: {fileID: 4989498394794887356, guid: 9a7f28e9d39e4863bf58468dd0a5a93f, type: 3}
   _settings_overlay_prefab: {fileID: 1196312220315873803, guid: 37f01ea1b7e8244479694977de07a0f4, type: 3}
   _about_overlay_prefab: {fileID: 5806657467384333101, guid: e158794c15b262049acd116700ac2f4e, type: 3}

@@ -7,10 +7,11 @@ namespace SHD.UI.Mono
 	public class MainMenuScenePresenterMono : MonoBehaviour
 	{
 		[Header("Scenes")]
-		[SerializeField] private string _new_game_scene_name = "S_GameChoice";
+		[SerializeField] private string _gameplay_scene_name = "S_Gameplay";
 
 		[Header("Overlays")]
 		[SerializeField] private Transform _overlay_root;
+		[SerializeField] private GameObject _new_game_settings_overlay_prefab;
 		[SerializeField] private GameObject _saves_overlay_prefab;
 		[SerializeField] private GameObject _settings_overlay_prefab;
 		[SerializeField] private GameObject _about_overlay_prefab;
@@ -34,7 +35,13 @@ namespace SHD.UI.Mono
 
 		public void OnNewGamePressed()
 		{
-			LoadSceneByName(_new_game_scene_name);
+			OpenOverlay(_new_game_settings_overlay_prefab);
+		}
+
+		public void StartGameplayFromNewGameSettings()
+		{
+			CloseActiveOverlay();
+			LoadSceneByName(_gameplay_scene_name);
 		}
 
 		public void OnSavesPressed()
@@ -97,6 +104,7 @@ namespace SHD.UI.Mono
 			}
 
 			_active_overlay_instance = instantiated_game_object;
+			BindOverlayDependencies(_active_overlay_instance);
 			StretchToParent(_active_overlay_instance.transform);
 			if (_active_overlay_instance.transform is RectTransform == false)
 			{
@@ -107,6 +115,19 @@ namespace SHD.UI.Mono
 					StretchToParent(ui_root);
 			}
 		}
+
+		private void BindOverlayDependencies(GameObject overlay_instance)
+		{
+			NewGameSettingsOverlayMono new_game_overlay;
+
+			if (overlay_instance == null)
+				return;
+
+			new_game_overlay = overlay_instance.GetComponent<NewGameSettingsOverlayMono>();
+			if (new_game_overlay != null)
+				new_game_overlay.Bind(this);
+		}
+
 
 		private GameObject ResolveGameObject(Object instance)
 		{
